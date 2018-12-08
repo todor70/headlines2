@@ -6,9 +6,8 @@ import com.zeljko.headlines2.repository.HeadlineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
@@ -26,7 +25,7 @@ public class SerbiaController {
     private String category;
     private String category1;
 
-    @RequestMapping("/listSerbia")
+    @GetMapping("/listSerbia")
     public String list(Model model) {
 
         RestTemplate restTemplate = new RestTemplate();
@@ -44,56 +43,56 @@ public class SerbiaController {
         return "serbia_headline_list";
     }
 
-    @RequestMapping("/listTop")
+    @GetMapping("/listTop")
     public String listTop() {
         category = "";
         category1 = "";
         return "redirect:/listSerbia";
     }
 
-    @RequestMapping("/listScience")
+    @GetMapping("/listScience")
     public String listScience() {
         category = "category=science&";
         category1 = "science";
         return "redirect:/listSerbia";
     }
 
-    @RequestMapping("/listSports")
+    @GetMapping("/listSports")
     public String listSports() {
         category = "category=sports&";
         category1 = "sports";
         return "redirect:/listSerbia";
     }
 
-    @RequestMapping("/listBusiness")
+    @GetMapping("/listBusiness")
     public String listBusiness() {
         category = "category=business&";
         category1 = "business";
         return "redirect:/listSerbia";
     }
 
-    @RequestMapping("/listHealth")
+    @GetMapping("/listHealth")
     public String listHealth() {
         category = "category=health&";
         category1 = "health";
         return "redirect:/listSerbia";
     }
 
-    @RequestMapping("/listEntertainment")
+    @GetMapping("/listEntertainment")
     public String listentertainment() {
         category = "category=entertainment&";
         category1 = "entertainment";
         return "redirect:/listSerbia";
     }
 
-    @RequestMapping("/listTechnology")
+    @GetMapping("/listTechnology")
     public String listTechnology() {
         category = "category=technology&";
         category1 = "technology";
         return "redirect:/listSerbia";
     }
 
-    @RequestMapping(value = "/headlineSerbia/{id}", method = RequestMethod.GET)
+    @GetMapping("/headlineSerbia/{id}")
     public String headlineSerbia(@PathVariable("id") long headlineID, Model model) {
 
         Headline headline = headlineRepository.findById(headlineID).get();

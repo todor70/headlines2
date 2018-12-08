@@ -6,9 +6,8 @@ import com.zeljko.headlines2.repository.HeadlineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
@@ -26,7 +25,7 @@ public class NewspaperController {
     private String newspaper;
     private String newspaper1;
 
-    @RequestMapping("/listNewspaper")
+    @GetMapping("/listNewspaper")
     public String list(Model model) {
 
         RestTemplate restTemplate = new RestTemplate();
@@ -44,56 +43,56 @@ public class NewspaperController {
         return "newspaper_headline_list";
     }
 
-    @RequestMapping("/listBBCNews")
+    @GetMapping("/listBBCNews")
     public String listBBCNews() {
         newspaper = "bbc-news";
         newspaper1 = "BBC News";
         return "redirect:/listNewspaper";
     }
 
-    @RequestMapping("/listGuardian")
+    @GetMapping("/listGuardian")
     public String listGuardian() {
         newspaper = "the-guardian-uk";
         newspaper1 = "The Guardian (UK)";
         return "redirect:/listNewspaper";
     }
 
-    @RequestMapping("/listWashingtonPost")
+    @GetMapping("/listWashingtonPost")
     public String listWashingtonPost() {
         newspaper = "the-washington-post";
         newspaper1 = "The Washington Post";
         return "redirect:/listNewspaper";
     }
 
-    @RequestMapping("/listCNN")
+    @GetMapping("/listCNN")
     public String listCNN() {
         newspaper = "cnn";
         newspaper1 = "CNN";
         return "redirect:/listNewspaper";
     }
 
-    @RequestMapping("/listDailyMail")
+    @GetMapping("/listDailyMail")
     public String listDailyMail() {
         newspaper = "daily-mail";
         newspaper1 = "Daily Mail";
         return "redirect:/listNewspaper";
     }
 
-    @RequestMapping("/listTime")
+    @GetMapping("/listTime")
     public String listTime() {
         newspaper = "time";
         newspaper1 = "Time";
         return "redirect:/listNewspaper";
     }
 
-    @RequestMapping("/listNG")
+    @GetMapping("/listNG")
     public String listNG() {
         newspaper = "national-geographic";
         newspaper1 = "National Geographic";
         return "redirect:/listNewspaper";
     }
 
-    @RequestMapping(value = "/headlineNewspaper/{id}", method = RequestMethod.GET)
+    @GetMapping("/headlineNewspaper/{id}")
     public String headlineNewspaper(@PathVariable("id") long headlineID, Model model) {
 
         Headline headline = headlineRepository.findById(headlineID).get();

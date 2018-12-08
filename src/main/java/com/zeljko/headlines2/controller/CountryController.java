@@ -6,9 +6,9 @@ import com.zeljko.headlines2.repository.HeadlineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
@@ -26,7 +26,7 @@ public class CountryController {
     private String country;
     private String country1;
 
-    @RequestMapping("/listCountry")
+    @GetMapping("/listCountry")
     public String list(Model model) {
 
         RestTemplate restTemplate = new RestTemplate();
@@ -44,56 +44,56 @@ public class CountryController {
         return "country_headline_list";
     }
 
-    @RequestMapping("/listUSA")
+    @GetMapping("/listUSA")
     public String listUSA() {
         country = "us";
         country1 = "USA";
         return "redirect:/listCountry";
     }
 
-    @RequestMapping("/listRussia")
+    @GetMapping("/listRussia")
     public String listRussia() {
         country = "ru";
         country1 = "Russia";
         return "redirect:/listCountry";
     }
 
-    @RequestMapping("/listAustralia")
+    @GetMapping("/listAustralia")
     public String listAustralia() {
         country = "au";
         country1 = "Australia";
         return "redirect:/listCountry";
     }
 
-    @RequestMapping("/listUnitedKingdom")
+    @GetMapping("/listUnitedKingdom")
     public String listUnitedKingdom() {
         country = "gb";
         country1 = "United Kingdom";
         return "redirect:/listCountry";
     }
 
-    @RequestMapping("/listChina")
+    @GetMapping("/listChina")
     public String listChina() {
         country = "cn";
         country1 = "China";
         return "redirect:/listCountry";
     }
 
-    @RequestMapping("/listJapan")
+    @GetMapping("/listJapan")
     public String listJapan() {
         country = "jp";
         country1 = "Japan";
         return "redirect:/listCountry";
     }
 
-    @RequestMapping("/listGermany")
+    @GetMapping("/listGermany")
     public String listGermany() {
         country = "de";
         country1 = "Germany";
         return "redirect:/listCountry";
     }
 
-    @RequestMapping(value = "/headlineCountry/{id}", method = RequestMethod.GET)
+    @GetMapping("/headlineCountry/{id}")
     public String headlineCountry(@PathVariable("id") long headlineID, Model model) {
 
         Headline headline = headlineRepository.findById(headlineID).get();
