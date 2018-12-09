@@ -22,7 +22,6 @@
             <div class="nav navbar-nav">
                 <a class="navbar-brand" style="font-family: 'sans-serif'"th:href="@{/}">Home</a>
             </div>
-
             <ul class="nav navbar-nav">
                 <li class="dropdown" style="font-family: 'sans-serif'">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Headlines from Serbia<span class="caret"></span></a>
@@ -68,15 +67,18 @@
         </div>
     </nav>
 
-
-        <h2 style="margin-bottom: 40px; font-family: 'sans-serif'">Top headlines from <span th:text="${country1}"></span></h2>
+    <div th:switch=true>
+        <h2 style="margin-bottom: 40px; font-family: 'sans-serif'" th:case="${category1 != null}">Top <span th:text="${category1}"></span> headlines from Serbia</h2>
+        <h2 style="margin-bottom: 40px; font-family: 'sans-serif'" th:case="${country1 != null}">Top headlines from <span th:text="${country1}"></span></h2>
+        <h2 style="margin-bottom: 40px; font-family: 'sans-serif'" th:case="${newspaper1 != null}">Top headlines from <span th:text="${newspaper1}"></span></h2>
+    </div>
 
     <div class="row" style="margin-left: 6px">
         <div th:each="headline : ${headlines}">
         <div class="col-md-3">
 
             <div class="thumbnail" style="width: 242px; height: 270px">
-                <a th:href="@{/headlineCountry/{id}(id=${headline.headlineID})}">
+                <a th:href="@{/headline/{id}(id=${headline.headlineID})}">
                 <img th:src="${headline.urlToImage}" style="width: 242px; height: 150px" alt="...">
             </a>
                 <div class="caption">
