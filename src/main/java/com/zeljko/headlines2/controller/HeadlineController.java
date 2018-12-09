@@ -1,7 +1,7 @@
 package com.zeljko.headlines2.controller;
 
-import com.zeljko.headlines2.domain.Headline;
-import com.zeljko.headlines2.domain.HeadlineList;
+import com.zeljko.headlines2.entity.Headline;
+import com.zeljko.headlines2.entity.HeadlineList;
 import com.zeljko.headlines2.repository.HeadlineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -1,4 +1,4 @@
-package com.zeljko.headlines2.domain;
+package com.zeljko.headlines2.entity;
 
 import com.zeljko.headlines2.util.Util;
 
