@@ -12,9 +12,9 @@
 </head>
 <body>
 
-<div class="container">
 
-    <nav class="navbar navbar-inverse">
+
+    <nav class="navbar navbar-inverse" style="margin-left: 20px; margin-right: 20px">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" style="font-family: 'sans-serif'" href="#">Breaking News</a>
@@ -66,7 +66,7 @@
             </ul>
         </div>
     </nav>
-
+    <div class="container">
     <div th:switch=true>
         <h2 style="margin-bottom: 40px; font-family: 'sans-serif'" th:case="${category1 != null}">Top <span th:text="${category1}"></span> headlines from Serbia</h2>
         <h2 style="margin-bottom: 40px; font-family: 'sans-serif'" th:case="${country1 != null}">Top headlines from <span th:text="${country1}"></span></h2>

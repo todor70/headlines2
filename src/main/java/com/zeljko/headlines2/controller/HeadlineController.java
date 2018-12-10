@@ -3,6 +3,7 @@ package com.zeljko.headlines2.controller;
 import com.zeljko.headlines2.entity.Headline;
 import com.zeljko.headlines2.entity.HeadlineList;
 import com.zeljko.headlines2.repository.HeadlineRepository;
+import com.zeljko.headlines2.service.HeadlineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,11 +16,11 @@ import java.util.List;
 @Controller
 public class HeadlineController {
 
-    private HeadlineRepository headlineRepository;
+    private HeadlineService headlineService;
 
     @Autowired
-    public HeadlineController(HeadlineRepository headlineRepository) {
-        this.headlineRepository = headlineRepository;
+    public HeadlineController(HeadlineService headlineService) {
+        this.headlineService = headlineService;
     }
 
     private final String BASE_URL = "https://newsapi.org/v2/top-headlines?";
@@ -42,7 +43,7 @@ public class HeadlineController {
         assert response != null;
         List<Headline> headlines = response.getArticles();
         for (Headline headline : headlines) {
-            headlineRepository.save(headline);
+            headlineService.saveHeadline(headline);
         }
         model.addAttribute("headlines", headlines);
         model.addAttribute("category1", category1);
@@ -108,7 +109,7 @@ public class HeadlineController {
         assert response != null;
         List<Headline> headlines = response.getArticles();
         for (Headline headline : headlines) {
-            headlineRepository.save(headline);
+            headlineService.saveHeadline(headline);
         }
         model.addAttribute("headlines", headlines);
         model.addAttribute("country1", country1);
@@ -174,7 +175,7 @@ public class HeadlineController {
         assert response != null;
         List<Headline> headlines = response.getArticles();
         for (Headline headline : headlines) {
-            headlineRepository.save(headline);
+            headlineService.saveHeadline(headline);
         }
         model.addAttribute("headlines", headlines);
         model.addAttribute("newspaper1", newspaper1);
@@ -234,7 +235,7 @@ public class HeadlineController {
     @GetMapping("/headline/{id}")
     public String headlineSerbia(@PathVariable("id") long headlineID, Model model) {
 
-        Headline headline = headlineRepository.findById(headlineID).get();
+        Headline headline = headlineService.getHeadlineById(headlineID);
 
         model.addAttribute("headline", headline);
         return "headline";
