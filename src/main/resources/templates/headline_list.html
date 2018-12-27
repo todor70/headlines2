@@ -9,88 +9,96 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    <style>
+        .thumbnail {
+            box-shadow: 0 4px 2px rgba(43, 59, 93, 0.30);
+        }
+    </style>
 </head>
 <body>
-
-
-
-    <nav class="navbar navbar-inverse" style="margin-left: 20px; margin-right: 20px">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" style="font-family: 'sans-serif'" href="#">Breaking News</a>
-            </div>
-            <div class="nav navbar-nav">
-                <a class="navbar-brand" style="font-family: 'sans-serif'"th:href="@{/}">Home</a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li class="dropdown" style="font-family: 'sans-serif'">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Headlines from Serbia<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a th:href="@{/listTop}">Top headlines</a></li>
-                        <li><a th:href="@{/listScience}">Top science headlines</a></li>
-                        <li><a th:href="@{/listSports}">Top sports headlines</a></li>
-                        <li><a th:href="@{/listHealth}">Top health headlines</a></li>
-                        <li><a th:href="@{/listBusiness}">Top business headlines</a></li>
-                        <li><a th:href="@{/listTechnology}">Top technology headlines</a></li>
-                        <li><a th:href="@{/listEntertainment}">Top entertainment headlines</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav">
-                <li class="dropdown" style="font-family: 'sans-serif'">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Headlines from World<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a th:href="@{/listUSA}">Headlines from USA</a></li>
-                        <li><a th:href="@{/listRussia}">Headlines from Russia</a></li>
-                        <li><a th:href="@{/listAustralia}">Headlines from Australia</a></li>
-                        <li><a th:href="@{/listUnitedKingdom}">Headlines from United Kingdom</a></li>
-                        <li><a th:href="@{/listChina}">Headlines from China</a></li>
-                        <li><a th:href="@{/listJapan}">Headlines from Japan</a></li>
-                        <li><a th:href="@{/listGermany}">Headlines from Germany</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav">
-                <li class="dropdown" style="font-family: 'sans-serif'">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Headlines from Newspapers<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a th:href="@{/listBBCNews}">Headlines from BBC News</a></li>
-                        <li><a th:href="@{/listGuardian}">Headlines from The Guardian (UK)</a></li>
-                        <li><a th:href="@{/listWashingtonPost}">Headlines from The Washington Post</a></li>
-                        <li><a th:href="@{/listCNN}">Headlines from CNN</a></li>
-                        <li><a th:href="@{/listDailyMail}">Headlines from Daily Mail</a></li>
-                        <li><a th:href="@{/listTime}">Headlines from Time</a></li>
-                        <li><a th:href="@{/listNG}">Headlines from National Geographic</a></li>
-                    </ul>
-                </li>
-            </ul>
+<nav class="navbar navbar-inverse" style="margin-left: 20px; margin-right: 20px">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" style="font-family: 'sans-serif'" href="#">Breaking News</a>
         </div>
-    </nav>
-    <div class="container">
+        <div class="nav navbar-nav">
+            <a class="navbar-brand" style="font-family: 'sans-serif'" th:href="@{/}">Home</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="dropdown" style="font-family: 'sans-serif'">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false">Headlines from Serbia<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a th:href="@{/listTop}">Top headlines</a></li>
+                    <li><a th:href="@{/listScience}">Top science headlines</a></li>
+                    <li><a th:href="@{/listSports}">Top sports headlines</a></li>
+                    <li><a th:href="@{/listHealth}">Top health headlines</a></li>
+                    <li><a th:href="@{/listBusiness}">Top business headlines</a></li>
+                    <li><a th:href="@{/listTechnology}">Top technology headlines</a></li>
+                    <li><a th:href="@{/listEntertainment}">Top entertainment headlines</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li class="dropdown" style="font-family: 'sans-serif'">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false">Headlines from World<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a th:href="@{/listUSA}">Headlines from USA</a></li>
+                    <li><a th:href="@{/listRussia}">Headlines from Russia</a></li>
+                    <li><a th:href="@{/listAustralia}">Headlines from Australia</a></li>
+                    <li><a th:href="@{/listUnitedKingdom}">Headlines from United Kingdom</a></li>
+                    <li><a th:href="@{/listChina}">Headlines from China</a></li>
+                    <li><a th:href="@{/listJapan}">Headlines from Japan</a></li>
+                    <li><a th:href="@{/listGermany}">Headlines from Germany</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li class="dropdown" style="font-family: 'sans-serif'">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false">Headlines from Newspapers<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a th:href="@{/listBBCNews}">Headlines from BBC News</a></li>
+                    <li><a th:href="@{/listGuardian}">Headlines from The Guardian (UK)</a></li>
+                    <li><a th:href="@{/listWashingtonPost}">Headlines from The Washington Post</a></li>
+                    <li><a th:href="@{/listCNN}">Headlines from CNN</a></li>
+                    <li><a th:href="@{/listDailyMail}">Headlines from Daily Mail</a></li>
+                    <li><a th:href="@{/listTime}">Headlines from Time</a></li>
+                    <li><a th:href="@{/listNG}">Headlines from National Geographic</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
     <div th:switch=true>
-        <h2 style="margin-bottom: 40px; font-family: 'sans-serif'" th:case="${category1 != null}">Top <span th:text="${category1}"></span> headlines from Serbia</h2>
-        <h2 style="margin-bottom: 40px; font-family: 'sans-serif'" th:case="${country1 != null}">Top headlines from <span th:text="${country1}"></span></h2>
-        <h2 style="margin-bottom: 40px; font-family: 'sans-serif'" th:case="${newspaper1 != null}">Top headlines from <span th:text="${newspaper1}"></span></h2>
+        <h2 style="margin-bottom: 40px; font-family: 'sans-serif'" th:case="${category1 != null}">Top <span
+                th:text="${category1}"></span> headlines from Serbia</h2>
+        <h2 style="margin-bottom: 40px; font-family: 'sans-serif'" th:case="${country1 != null}">Top headlines from
+            <span th:text="${country1}"></span></h2>
+        <h2 style="margin-bottom: 40px; font-family: 'sans-serif'" th:case="${newspaper1 != null}">Top headlines from
+            <span th:text="${newspaper1}"></span></h2>
     </div>
 
     <div class="row" style="margin-left: 6px">
         <div th:each="headline : ${headlines}">
-        <div class="col-md-3">
+            <div class="col-md-3">
 
-            <div class="thumbnail" style="width: 242px; height: 270px">
-                <a th:href="@{/headline/{id}(id=${headline.headlineID})}">
-                <img th:src="${headline.urlToImage}" style="width: 242px; height: 150px" alt="...">
-            </a>
-                <div class="caption">
+                <div class="thumbnail" style="width: 242px; height: 270px">
+                    <a th:href="@{/headline/{id}(id=${headline.headlineID})}">
+                        <img th:src="${headline.urlToImage}" style="width: 242px; height: 150px" alt="...">
+                    </a>
+                    <div class="caption">
 
-                    <b th:text="${headline.author}" style="font-family: 'sans-serif'"></b>
+                        <b th:text="${headline.author}" style="font-family: 'sans-serif'"></b>
 
-                    <p th:text="${headline.title}" style="font-family: 'sans-serif'"></p>
+                        <p th:text="${headline.title}" style="font-family: 'sans-serif'"></p>
 
+                    </div>
                 </div>
-            </div>
 
-        </div>
+            </div>
         </div>
     </div>
 
