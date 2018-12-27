@@ -86,7 +86,7 @@ public class HeadlineController {
     }
 
     @GetMapping("/listEntertainment")
-    public String listentertainment() {
+    public String listEntertainment() {
         category = "category=entertainment";
         category1 = "entertainment";
         return "redirect:/listSerbia";

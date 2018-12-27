@@ -9,6 +9,29 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    <style>
+
+        .media-body .button{
+            display: inline-block;
+            padding: 10px 15px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #fff;
+            background: #e7989a;
+            border-bottom-right-radius: 10px;
+            /*text-transform: capitalize;*/
+            transition: all 0.30s linear;
+            text-decoration:none;
+        }
+
+        .media-body .button:hover{
+
+            background: #c87a7c;
+
+        }
+
+    </style>
+
 </head>
 <body>
 
@@ -80,12 +103,12 @@
         <div class="media-body" style="font-family: 'sans-serif'">
            <!-- <h4 class="media-heading"></h4>-->
 
-            <h3 class="media-object"><b  th:text="${headline.author}"/></h3>
-            <h3>Published at</h3>
-            <h4 class="media-object"><b  th:text="${headline.publishedAt}"/></h4></br>
+            <h3 class="media-object"><b  th:text="${headline.author}"/></h3><br>
+
+            <h4 class="media-object">Published at  <b  th:text="${headline.publishedAt}"/></h4></br>
             <h4 class="media-heading"
                 th:text="${headline.description}"></h4></br>
-            <a th:href="${headline.url}"  class="btn btn-primary">Read more from source</a>
+            <a th:href="${headline.url}"  class="button">Read more from source</a>
         </div>
     </div>
 
