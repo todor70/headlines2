@@ -4,6 +4,7 @@
     <title>Headline List</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -23,16 +24,16 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-inverse" style="margin-left: 20px; margin-right: 20px">
+<nav class="navbar navbar-inverse" style="margin-left: 40px; margin-right: 40px; font-family: 'Merienda'">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" style="font-family: 'sans-serif'" href="#">Breaking News</a>
+            <a class="navbar-brand" href="#">Breaking News</a>
         </div>
         <div class="nav navbar-nav">
-            <a class="navbar-brand" style="font-family: 'sans-serif'" th:href="@{/}">Home</a>
+            <a class="navbar-brand" th:href="@{/}">Home</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="dropdown" style="font-family: 'sans-serif'">
+            <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                    aria-expanded="false">Headlines from Serbia<span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -47,7 +48,7 @@
             </li>
         </ul>
         <ul class="nav navbar-nav">
-            <li class="dropdown" style="font-family: 'sans-serif'">
+            <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                    aria-expanded="false">Headlines from World<span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -62,7 +63,7 @@
             </li>
         </ul>
         <ul class="nav navbar-nav">
-            <li class="dropdown" style="font-family: 'sans-serif'">
+            <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                    aria-expanded="false">Headlines from Newspapers<span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -78,13 +79,13 @@
         </ul>
     </div>
 </nav>
-<div class="container">
+<div class="container" style="font-family: Merienda">
     <div th:switch=true>
-        <h2 style="margin-bottom: 40px; font-family: 'sans-serif'" th:case="${category1 != null}">Top <span
+        <h2 style="margin-bottom: 40px" th:case="${category1 != null}">Top <span
                 th:text="${category1}"></span> headlines from Serbia</h2>
-        <h2 style="margin-bottom: 40px; font-family: 'sans-serif'" th:case="${country1 != null}">Top headlines from
+        <h2 style="margin-bottom: 40px" th:case="${country1 != null}">Top headlines from
             <span th:text="${country1}"></span></h2>
-        <h2 style="margin-bottom: 40px; font-family: 'sans-serif'" th:case="${newspaper1 != null}">Top headlines from
+        <h2 style="margin-bottom: 40px" th:case="${newspaper1 != null}">Top headlines from
             <span th:text="${newspaper1}"></span></h2>
     </div>
 
@@ -98,9 +99,9 @@
                     </a>
                     <div class="caption">
 
-                        <b th:text="${headline.author}" style="font-family: 'sans-serif'"></b>
+                        <b th:text="${headline.author}"></b>
 
-                        <p th:text="${headline.title}" style="font-family: 'sans-serif'"></p>
+                        <p th:text="${headline.title}"></p>
 
                     </div>
                 </div>
