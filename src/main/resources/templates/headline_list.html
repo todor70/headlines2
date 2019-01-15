@@ -4,13 +4,17 @@
     <title>Headline List</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gabriela" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <style>
+
+        body{
+            background: linear-gradient(to right bottom, #9a9a9a,#d3d3d3);
+        }
         .thumbnail {
             box-shadow: 0 4px 2px rgba(43, 59, 93, 0.30);
         }
@@ -24,7 +28,7 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-inverse" style="margin-left: 40px; margin-right: 40px; font-family: 'Merienda'">
+<nav class="navbar navbar-inverse" style="margin-left: 40px; margin-right: 40px; font-family: 'Gabriela'">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="#">Breaking News</a>
@@ -79,7 +83,7 @@
         </ul>
     </div>
 </nav>
-<div class="container" style="font-family: Merienda">
+<div class="container" style="font-family: Gabriela">
     <div th:switch=true>
         <h2 style="margin-bottom: 40px" th:case="${category1 != null}">Top <span
                 th:text="${category1}"></span> headlines from Serbia</h2>
