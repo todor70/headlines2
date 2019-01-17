@@ -4,17 +4,25 @@
     <title>Headline List</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Gabriela" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT Sans" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/news.css}"/>
+
+
+    <script>
+        $(document).ready(function() {
+            $("#sidebarCollapse").on("click", function() {
+                $("#sidebar").toggleClass("active");
+                $(this).toggleClass("active");
+            });
+        });
+    </script>
 
     <style>
 
-        body{
-            background: linear-gradient(to right bottom, #9a9a9a,#d3d3d3);
-        }
         .thumbnail {
             box-shadow: 0 4px 2px rgba(43, 59, 93, 0.30);
         }
@@ -28,19 +36,21 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-inverse" style="margin-left: 40px; margin-right: 40px; font-family: 'Gabriela'">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">Breaking News</a>
+
+<div class="wrapper">
+    <!-- Sidebar Holder -->
+    <nav id="sidebar" style="font-family: 'PT Sans'">
+        <div class="sidebar-header">
+            <h3>Breaking News</h3>
         </div>
-        <div class="nav navbar-nav">
-            <a class="navbar-brand" th:href="@{/}">Home</a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                   aria-expanded="false">Headlines from Serbia<span class="caret"></span></a>
-                <ul class="dropdown-menu">
+
+        <ul class="list-unstyled components">
+
+
+            <li>
+                <a th:href="@{/}">Home</a>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Headlines from Serbia</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
                     <li><a th:href="@{/listTop}">Top headlines</a></li>
                     <li><a th:href="@{/listScience}">Top science headlines</a></li>
                     <li><a th:href="@{/listSports}">Top sports headlines</a></li>
@@ -49,13 +59,8 @@
                     <li><a th:href="@{/listTechnology}">Top technology headlines</a></li>
                     <li><a th:href="@{/listEntertainment}">Top entertainment headlines</a></li>
                 </ul>
-            </li>
-        </ul>
-        <ul class="nav navbar-nav">
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                   aria-expanded="false">Headlines from World<span class="caret"></span></a>
-                <ul class="dropdown-menu">
+                <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false">Headlines from World</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu2">
                     <li><a th:href="@{/listUSA}">Headlines from USA</a></li>
                     <li><a th:href="@{/listRussia}">Headlines from Russia</a></li>
                     <li><a th:href="@{/listAustralia}">Headlines from Australia</a></li>
@@ -64,13 +69,8 @@
                     <li><a th:href="@{/listJapan}">Headlines from Japan</a></li>
                     <li><a th:href="@{/listGermany}">Headlines from Germany</a></li>
                 </ul>
-            </li>
-        </ul>
-        <ul class="nav navbar-nav">
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                   aria-expanded="false">Headlines from Newspapers<span class="caret"></span></a>
-                <ul class="dropdown-menu">
+                <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false">Headlines from Newspapers</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu3">
                     <li><a th:href="@{/listBBCNews}">Headlines from BBC News</a></li>
                     <li><a th:href="@{/listGuardian}">Headlines from The Guardian (UK)</a></li>
                     <li><a th:href="@{/listWashingtonPost}">Headlines from The Washington Post</a></li>
@@ -80,10 +80,15 @@
                     <li><a th:href="@{/listNG}">Headlines from National Geographic</a></li>
                 </ul>
             </li>
+
         </ul>
-    </div>
-</nav>
-<div class="container" style="font-family: Gabriela">
+    </nav>
+
+<div class="container" style="font-family: 'PT Sans'">
+    <button style="margin-top: 20px" type="button" id="sidebarCollapse" class="btn btn-info active">
+        <i class="glyphicon glyphicon-align-left"></i>
+        <span>Toggle Sidebar</span>
+    </button>
     <div th:switch=true>
         <h2 style="margin-bottom: 40px" th:case="${category1 != null}">Top <span
                 th:text="${category1}"></span> headlines from Serbia</h2>
@@ -114,6 +119,7 @@
         </div>
     </div>
 
+</div>
 </div>
 
 </body>
